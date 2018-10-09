@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_is_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 11:07:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 14:46:28 by dmendelo         ###   ########.fr       */
+/*   Created: 2018/10/09 13:02:59 by dmendelo          #+#    #+#             */
+/*   Updated: 2018/10/09 13:03:47 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int			ft_printf(const char *format, ...)
+int				ft_is_digit(char c)
 {
-	va_list			arg_list;
-	int				r_val;
-
-	if (format == NULL)
-	{
-		return (-1);
-	}
-	va_start(arg_list, format);
-	r_val = parse_format(format, arg_list);
-	va_end(arg_list);
-	return (r_val);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

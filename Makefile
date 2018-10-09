@@ -3,19 +3,9 @@ NAME = libftprintf.a
 CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -I includes/
 
-SRC_FILES = string.c \
-			convert_length.c \
-			init_struct.c \
-			parse.c \
-			flags.c \
-			more_flags.c \
+SRC_FILES = parse.c \
 			printf.c \
-			specifiers.c \
-			decimal.c \
-			ft_putnbr_base.c \
-			hex.c \
-			decimal2.c \
-			unsigned.c 
+			parse_functions.c
 
 .PHONY = all clean fclean clean re
 

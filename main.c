@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 11:07:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 14:46:28 by dmendelo         ###   ########.fr       */
+/*   Created: 2018/10/09 12:41:50 by dmendelo          #+#    #+#             */
+/*   Updated: 2018/10/09 14:55:51 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "includes/ft_printf.h"
 
-int			ft_printf(const char *format, ...)
+int			main()
 {
-	va_list			arg_list;
-	int				r_val;
-
-	if (format == NULL)
-	{
-		return (-1);
-	}
-	va_start(arg_list, format);
-	r_val = parse_format(format, arg_list);
-	va_end(arg_list);
-	return (r_val);
+	ft_printf("testing.....\n");
+	ft_printf("test %10.5s\n", "Hello");
+	return (0);
 }

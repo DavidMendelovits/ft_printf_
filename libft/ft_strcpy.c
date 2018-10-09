@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 11:07:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 14:46:28 by dmendelo         ###   ########.fr       */
+/*   Created: 2018/10/09 14:41:43 by dmendelo          #+#    #+#             */
+/*   Updated: 2018/10/09 14:42:00 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int			ft_printf(const char *format, ...)
+char	*ft_strcpy(char *dest, char *src)
 {
-	va_list			arg_list;
-	int				r_val;
+	int		i;
 
-	if (format == NULL)
+	i = 0;
+	while (src[i] != '\0')
 	{
-		return (-1);
+		dest[i] = src[i];
+		i++;
 	}
-	va_start(arg_list, format);
-	r_val = parse_format(format, arg_list);
-	va_end(arg_list);
-	return (r_val);
+	dest[i] = '\0';
+	return (dest);
 }

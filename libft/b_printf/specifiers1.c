@@ -36,7 +36,7 @@ int             dispatch(va_list arg_list, char spec)
     return (printed_chars);
 }
 
-char            spec_check(const char *format, int *ptr)
+char            b_spec_check(const char *format, int *ptr)
 {
     int         i;
 
