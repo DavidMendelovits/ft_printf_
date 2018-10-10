@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:33:16 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 19:39:37 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/10 16:49:18 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,42 @@
 
 void			dispatch(t_opt *o, t_content *content)
 {
-	if (o->specifier == 'S' || o->specifier == 's')
+	WOW();
+	if (o->spec == 'S' || o->spec == 's')
 	{
 		string(o, content);
 	}
-	else if (o->specifier == 'C' || o->specifier == 'c')
+	else if (o->spec == 'C' || o->spec == 'c')
 	{
 		character(o, content);
 	}
-	else if (o->specifier == 'd' || o->specifier == 'i')
+	else if (o->spec == 'd' || o->spec == 'i')
 	{
-		decimal(o, content);
+//		decimal(o, content);
 	}
-	else if (o->specifier == 'D')
+	else if (o->spec == 'D')
 	{
 //		ft_strcpy(o->length, "l");
-		decimal(o, content);
+//		decimal(o, content);
 	}
-	else if (o->specifier == 'u' || o->specifier == 'U')
+	else if (o->spec == 'u' || o->spec == 'U')
 	{
-		unsigned_decimal(o, content);
+//		unsigned_decimal(o, content);
 	}
-	else if (o->specifier == 'x' || o->specifier == 'X')
+	else if (o->spec == 'x' || o->spec == 'X')
 	{
-		hexadecimal(o, content);
+//		hexadecimal(o, content);
 	}
-	else if (o->specifier == 'o' || o->specifier == 'O')
+	else if (o->spec == 'o' || o->spec == 'O')
 	{
-		octal(o, content);
+//		octal(o, content);
 	}
-	else if (o->specifier == 'b')
+	else if (o->spec == 'b')
 	{
-		binary(o, content);
+//		binary(o, content);
 	}
-	else if (o->specifier == 'p')
+	else if (o->spec == 'p')
 	{
-		pointer(o, content);
+//		pointer(o, content);
 	}
-
 }

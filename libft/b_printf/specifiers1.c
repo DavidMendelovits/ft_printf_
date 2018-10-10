@@ -1,6 +1,6 @@
 #include "b_printf.h"
 
-int             dispatch(va_list arg_list, char spec)
+int             _dispatch(va_list arg_list, char spec)
 {
     int             printed_chars;
 

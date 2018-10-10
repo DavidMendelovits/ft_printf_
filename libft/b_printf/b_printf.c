@@ -33,7 +33,7 @@ int             parse(const char *format, va_list arg_list)
             specifier = b_spec_check(format, &i);
             if (specifier)
             {
-                printed_chars += dispatch(arg_list, specifier);
+                printed_chars += _dispatch(arg_list, specifier);
             }
             else
             {

@@ -5,8 +5,10 @@ CFLAGS += -I includes/
 
 SRC_FILES = parse.c \
 			printf.c \
-			parse_functions.c
-
+			parse_functions.c \
+			string.c \
+			wide_char.c \
+			dispatch.c
 .PHONY = all clean fclean clean re
 
 SRCS = $(addprefix src/, $(SRC_FILES))

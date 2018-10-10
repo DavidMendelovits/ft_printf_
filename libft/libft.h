@@ -21,4 +21,5 @@ int				ft_atoi_base(char *_int, char *base);
 int				ft_strcmp(char *s1, char *s2);
 int				ft_is_digit(char c);
 char			*ft_strcpy(char *dest, char *src);
+char			*ft_strnew(size_t size);
 #endif

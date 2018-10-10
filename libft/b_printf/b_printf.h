@@ -12,7 +12,7 @@
 int             b_printf(const char *format, ...);
 int             parse(const char *format, va_list arg_list);
 char            b_spec_check(const char *format, int *ptr);
-int             dispatch(va_list arg_list, char specifier);
+int             _dispatch(va_list arg_list, char specifier);
 void            putnbr_base(unsigned long nbr, int base, int *chars);
 void            put_integer(va_list arg_list, int *chars);
 void            put_char(va_list arg_list, int *chars);

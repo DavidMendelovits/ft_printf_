@@ -6,14 +6,24 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:58:18 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 19:06:22 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/10 16:48:17 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <wchar.h>
 #define WOW() printf("->%s\n", __func__)
+
+typedef union
+{
+	char			character;
+	char			*str;
+	intmax_t		num;
+	uintmax_t		u_num;
+	void			*ptr;
+}					t_argument;
 
 typedef struct		s_opt
 {
@@ -51,15 +61,6 @@ typedef struct		s_flags
 	int				prepend_zero:1;
 }					t_flags;
 
-typedef union
-{
-	char			character;
-	char			*str;
-	intmax_t		num;
-	uintmax_t		u_num;
-	void			*ptr;
-}					t_argument;
-
 int					ft_printf(const char *format, ...);
 int					parse_format(const char *format, va_list arg_list);
 void				init_content(t_content *content, char *format, va_list *args);
@@ -74,3 +75,13 @@ int					read_length(t_opt **o, t_content *content, int ptr);
 int					spec_check(char c);
 int					flag_check(char c);
 int					is_length_char(char c);
+
+void				dispatch(t_opt *o, t_content *content);
+void				string(t_opt *o, t_content *content);
+void				character(t_opt *o, t_content *content);
+
+void				print_wide_string(t_opt *o, t_content *content);
+int					ft_print_wchar(wchar_t);
+wint_t				wchar_to_i(unsigned char *wchar, int len);
+wint_t				extract_wchar(int len, wchar_t s);
+int					get_wchar_length(wint_t s);
