@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   string.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 12:41:50 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 18:30:15 by dmendelo         ###   ########.fr       */
+/*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
+/*   Updated: 2018/10/09 19:19:16 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
-int			main()
+void			string(t_opt *o, t_content *o)
 {
-	ft_printf("testing.....\n");
-	ft_printf("test %010.5lld\n", "Hello");
-	return (0);
+	if (o->specifier == 's')
+	{
+		print_string(list, content);
+	}
+	else if (o->specifier == 'S')
+	{
+		print_wide_string(list, content);
+	}
 }

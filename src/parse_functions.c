@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:53:20 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 15:04:39 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/09 17:38:55 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ int			read_width(t_opt **o, t_content *content, int ptr)
 		(*o)->_width = ft_atoi(width);
 		free(width);
 	}
-	printf("returns %d\n", ptr);
+	printf("-----\no->width = %d\no->_width = %d\n", (*o)->width, (*o)->_width);
+	b_printf("returns %d\n", ptr);
 	return (ptr);
 }
 
@@ -106,6 +107,7 @@ int			read_precision(t_opt **o, t_content *content, int ptr)
 		(*o)->_precision = ft_atoi(precision);
 		free(precision);
 	}
+	printf("-----\no->precision = %d\no->_precision = %d\n", (*o)->precision, (*o)->_precision);
 	printf("returns %d\n", ptr);
 	return (ptr);
 }

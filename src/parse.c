@@ -6,11 +6,12 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:15:31 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 15:04:41 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/09 18:37:11 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <assert.h>
 
 void			init_opt(t_opt **o)
 {
@@ -20,7 +21,7 @@ void			init_opt(t_opt **o)
 	(*o)->width = 0;
 	(*o)->_width = 0;
 	(*o)->precision = 0;
-	(*o)->precision = 0;
+	(*o)->_precision = 0;
 	ft_bzero((*o)->length, 3);
 	(*o)->spec = '\0';
 }
@@ -28,27 +29,27 @@ void			init_opt(t_opt **o)
 void			print_options(t_opt *o)
 {
 	WOW();
-	b_printf("-----------opt struct-----------\n");
+	printf("-----------opt struct-----------\n");
 	if (o->flags)
 	{
-		b_printf("->present flags:\n");
+		printf("->present flags:\n");
 		if (o->flags->left_align)
-			b_printf("left_align '-'\n");
+			printf("left_align '-'\n");
 		if (o->flags->prepend_space)
-			b_printf("prepend_space ' '\n");
+			printf("prepend_space ' '\n");
 		if (o->flags->prepend_sign)
-			b_printf("prepend_sign '+'\n");
+			printf("prepend_sign '+'\n");
 		if (o->flags->prefix)
-			b_printf("prefix '#'\n");
+			printf("prefix '#'\n");
 		if (o->flags->prepend_zero)
-			b_printf("prepend_zero '0'\n");
+			printf("prepend_zero '0'\n");
 	}
-	b_printf("width = %d\n", o->width);
-	b_printf("_width = %d\n", o->_width);
-	b_printf("precision = %d\n", o->precision);
-	b_printf("_precision = %d\n", o->_precision);
-	b_printf("length = %s\n", o->length);
-	b_printf("specifier = %c\n", o->spec);
+	printf("width = %d\n", o->width);
+	printf("_width = %d\n", o->_width);
+	printf("precision = %d\n", o->precision);
+	printf("_precision = %d\n", o->_precision);
+	printf("length = %s\n", o->length);
+	printf("specifier = %c\n", o->spec);
 }
 
 
@@ -73,18 +74,23 @@ void			parse_specifier(t_content *content, t_opt *o, int *ptr)
 	WOW();
 	int					tmp;
 
-	tmp = *ptr;
+	tmp = *ptr + 1;
+	print_options(o);
 	while (content->format[tmp] && !(spec_check(content->format[tmp])))
 	{
 		b_printf("\n----content->format[%d] = %c\n", tmp, content->format[tmp]);
+		assert(tmp < ft_strlen(content->format));
 		if (flag_check(content->format[tmp]))
-			tmp += read_flags(&o, content, tmp);
+		{
+			tmp = read_flags(&o, content, tmp);
+			assert(o->flags);
+		}
 		else if (ft_is_digit(content->format[tmp]) || content->format[tmp] == '*')
-			tmp += read_width(&o, content, tmp);
+			tmp = read_width(&o, content, tmp);
 		else if (content->format[tmp] == '.')
-			tmp += read_precision(&o, content, tmp);
+			tmp = read_precision(&o, content, tmp);
 		else if (is_length_char(content->format[tmp]))
-			tmp += read_length(&o, content, tmp);
+			tmp = read_length(&o, content, tmp);
 	}
 	b_printf("\n----content->format[%d] = %c\n", tmp, content->format[tmp]);
 	if (spec_check(content->format[tmp]))
@@ -93,7 +99,7 @@ void			parse_specifier(t_content *content, t_opt *o, int *ptr)
 		*ptr = tmp;
 	}
 	print_options(o);
-//	dispatch(o, content);
+	dispatch(o, content);
 }
 
 int				parse_format(const char *format, va_list arg_list)
@@ -106,7 +112,7 @@ int				parse_format(const char *format, va_list arg_list)
 	int					begin;
 
 	init_opt(&o);
-	free_opt(&o);
+//	print_options(o);
 	init_content(&content, (char *)format, (va_list *)arg_list);
 	ptr = 0;
 	while (format[ptr])
@@ -129,5 +135,6 @@ int				parse_format(const char *format, va_list arg_list)
 			free(print);
 		}
 	}
+	free_opt(&o);
 	return (content.r_val);
 }

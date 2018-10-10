@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:58:18 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 14:53:18 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/09 19:06:22 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 typedef struct		s_opt
 {
 	struct s_flags	*flags;
-	int				width:1;
+	unsigned int	width:1;
 	int				_width;
-	int				precision:1;
+	unsigned int	precision:1;
 	int				_precision;
 	char			length[3];
 	char			spec;
+	t_argument		*data;
 }					t_opt;
 
 typedef struct		s_checks
