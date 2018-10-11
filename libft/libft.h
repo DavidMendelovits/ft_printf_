@@ -11,7 +11,7 @@ void            *ft_memset(void *s, int c, size_t n);
 void            *ft_memalloc(size_t size);
 void            ft_bzero(void *s, size_t n);
 int             ft_atoi(const char *str);
-int             ft_strlen(char *str);
+int             ft_strlen(const char *str);
 int             b_printf(const char *format, ...);
 char            *ft_strdup(char *str);
 char            *ft_strdup_range(char *str, int begin, int end);
@@ -22,4 +22,5 @@ int				ft_strcmp(char *s1, char *s2);
 int				ft_is_digit(char c);
 char			*ft_strcpy(char *dest, char *src);
 char			*ft_strnew(size_t size);
+char			*ft_strjoin(const char *s1, const char *s2);
 #endif

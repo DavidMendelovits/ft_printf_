@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:53:20 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 17:38:55 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/10 21:53:26 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_flags 	*init_flags_struct(void)
 {
-	WOW();
+//	WOW();
 	t_flags		*flags;
 
 	flags = malloc(sizeof(t_flags));
@@ -28,7 +28,7 @@ t_flags 	*init_flags_struct(void)
 
 int			read_flags(t_opt **o, t_content *content, int ptr)
 {
-	WOW();
+//	WOW();
 	(*o)->flags = init_flags_struct();
 	while (content->format[ptr] && flag_check(content->format[ptr]))
 	{
@@ -60,7 +60,7 @@ int			read_flags(t_opt **o, t_content *content, int ptr)
 
 int			read_width(t_opt **o, t_content *content, int ptr)
 {
-	WOW();
+//	WOW();
 	char		*width;
 	int			begin;
 
@@ -80,14 +80,14 @@ int			read_width(t_opt **o, t_content *content, int ptr)
 		(*o)->_width = ft_atoi(width);
 		free(width);
 	}
-	printf("-----\no->width = %d\no->_width = %d\n", (*o)->width, (*o)->_width);
-	b_printf("returns %d\n", ptr);
+//	printf("-----\no->width = %d\no->_width = %d\n", (*o)->width, (*o)->_width);
+//	b_printf("returns %d\n", ptr);
 	return (ptr);
 }
 
 int			read_precision(t_opt **o, t_content *content, int ptr)
 {
-	WOW();
+//	WOW();
 	char		*precision;
 	int			begin;
 
@@ -107,14 +107,14 @@ int			read_precision(t_opt **o, t_content *content, int ptr)
 		(*o)->_precision = ft_atoi(precision);
 		free(precision);
 	}
-	printf("-----\no->precision = %d\no->_precision = %d\n", (*o)->precision, (*o)->_precision);
-	printf("returns %d\n", ptr);
+//	printf("-----\no->precision = %d\no->_precision = %d\n", (*o)->precision, (*o)->_precision);
+//	printf("returns %d\n", ptr);
 	return (ptr);
 }
 
 int			read_length(t_opt **o, t_content *content, int ptr)
 {
-	WOW();
+//	WOW();
 	if (content->format[ptr] == 'l' && content->format[ptr + 1] == 'l'
 		&& spec_check(content->format[ptr + 2]))
 		ft_strcpy((*o)->length, "ll");
@@ -129,25 +129,25 @@ int			read_length(t_opt **o, t_content *content, int ptr)
 		ft_strcpy((*o)->length, "z");
 	else if (content->format[ptr] == 'j' && spec_check(content->format[ptr + 1]))
 		ft_strcpy((*o)->length, "z");
-	printf("returns %d\n", ptr + ft_strlen((*o)->length));
+//	printf("returns %d\n", ptr + ft_strlen((*o)->length));
 	return (ptr + ft_strlen((*o)->length));
 }
 
 int			spec_check(char c)
 {
-	WOW();
+//	WOW();
 	if (c == 'c' || c == 'C' || c == 's' || c == 'S' || c == 'p'
 	|| c == 'd' || c == 'D' || c == 'i' || c == 'u' || c == 'o'
 	|| c == 'O' || c == 'x' || c == 'X' || c == 'b' || c == '%'
 	|| c == 'U')
 		return (1);
-	b_printf("return 0\n");
+//	b_printf("return 0\n");
 	return (0);
 }
 
 int			flag_check(char c)
 {
-	WOW();
+//	WOW();
 	if (c == '#' || c == '-' || c == '+' || c == ' ' || c == '0')
 		return (1);
 	return (0);
@@ -155,7 +155,7 @@ int			flag_check(char c)
 
 int			is_length_char(char c)
 {
-	WOW();
+//	WOW();
 	if (c == 'l' || c == 'h' || c == 'j' || c == 'z')
 		return (1);
 	return (0);

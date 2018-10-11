@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/09 11:07:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 21:53:36 by dmendelo         ###   ########.fr       */
+/*   Created: 2018/10/10 20:48:03 by dmendelo          #+#    #+#             */
+/*   Updated: 2018/10/10 21:03:17 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int			ft_printf(const char *format, ...)
+char		*ft_strjoin(const char *s1, const char *s2)
 {
-//	WOW();
-	va_list			arg_list;
-	int				r_val;
+	char			*new;
+	int				p;
+	int				np;
 
-	if (format == NULL)
+	new = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	p = 0;
+	np = 0;
+	while (s1[p])
 	{
-		return (-1);
+		new[np] = s1[p];
+		p += 1;
+		np += 1;
 	}
-	va_start(arg_list, format);
-	r_val = parse_format(format, arg_list);
-	va_end(arg_list);
-	return (r_val);
+	p = 0;
+	while (s2[p])
+	{
+		new[np] = s2[p];
+		np += 1;
+		p += 1;
+	}
+	return (new);
 }

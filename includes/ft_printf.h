@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:58:18 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 16:48:17 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/10 21:15:20 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,14 @@ int					flag_check(char c);
 int					is_length_char(char c);
 
 void				dispatch(t_opt *o, t_content *content);
+
 void				string(t_opt *o, t_content *content);
 void				character(t_opt *o, t_content *content);
+char				*pad_string(t_opt *o, int _pad);
+void				string_options(t_opt *o);
+void				print_string(t_opt *o, t_content *content);
+
+
 
 void				print_wide_string(t_opt *o, t_content *content);
 int					ft_print_wchar(wchar_t);

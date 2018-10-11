@@ -6,20 +6,24 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 16:53:29 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/10 21:59:29 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <assert.h>
 
 void			character(t_opt *o, t_content *content)
 {
-	WOW();
+//	WOW();
 	wchar_t			wc;
+	char			c;
 
 	if (o->spec == 'c')
 	{
-//		print_string(o, content);
+		c = (char)va_arg(*content->arg_list, int);
+		o->data->str = ft_strdup_range(&c, 0, 0);
+		print_string(o, content);
 	}
 	else if (o->spec == 'C')
 	{
@@ -28,14 +32,75 @@ void			character(t_opt *o, t_content *content)
 	}
 }
 
+char			*pad_string(t_opt *o, int _pad)
+{
+//	WOW();
+	char			*pad;
+	char			*new;
+
+	pad = (char *)ft_memalloc(sizeof(char) * (_pad + 1));
+//	printf("1\n");
+	ft_memset(pad, ' ', _pad);
+//	printf("1\n");
+	if (o->flags && o->flags->left_align)
+	{
+		new = ft_strjoin(o->data->str, pad);
+	}
+	else
+	{
+		new = ft_strjoin(pad, o->data->str);
+	}
+	free(o->data->str);
+	free(pad);
+	return (new);
+}
+
+void			string_options(t_opt *o)
+{
+//	WOW();
+	char			*tmp;
+
+	if (o->precision && o->_precision < ft_strlen(o->data->str))
+	{
+		tmp = ft_strdup_range(o->data->str, 0, o->_precision - 1);
+		free(o->data->str);
+		o->data->str = ft_strdup(tmp);
+		free(tmp);
+	}
+	if (o->width && o->_width > ft_strlen(o->data->str))
+	{
+		tmp = pad_string(o, o->_width - ft_strlen(o->data->str));
+		o->data->str = ft_strdup(tmp);
+		free(tmp);
+	}
+}
+
+void			print_string(t_opt *o, t_content *content)
+{
+//	WOW();
+	int			len;
+
+	if (o->width || o->precision)
+	{
+		string_options(o);
+	}
+	len = ft_strlen(o->data->str);
+	content->r_val += len;
+	write(1, o->data->str, len);
+}
+
 void			string(t_opt *o, t_content *content)
 {
-	WOW();
+//	WOW();
+	char			*tmp;
+
 	if (o->spec == 's')
 	{
-//		print_string(o, content);
+		tmp = va_arg(*content->arg_list, char *);
+		o->data->str = ft_strdup(tmp);
+		print_string(o, content);
 	}
-	else if (o->spec == 'S')
+	else if (o->spec == 'S' || (o->spec == 's' && !ft_strcmp(o->length, "l")))
 	{
 		print_wide_string(o, content);
 	}

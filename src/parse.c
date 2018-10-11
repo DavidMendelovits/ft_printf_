@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:15:31 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/09 18:37:11 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/10 21:57:23 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void			init_opt(t_opt **o)
 {
-	WOW();
+//	WOW();
 	(*o) = (t_opt *)malloc(sizeof(t_opt));
 	(*o)->flags = NULL;
 	(*o)->width = 0;
@@ -24,6 +24,7 @@ void			init_opt(t_opt **o)
 	(*o)->_precision = 0;
 	ft_bzero((*o)->length, 3);
 	(*o)->spec = '\0';
+	(*o)->data = malloc(sizeof(t_argument));
 }
 
 void			print_options(t_opt *o)
@@ -55,15 +56,16 @@ void			print_options(t_opt *o)
 
 void			free_opt(t_opt **o)
 {
-	WOW();
+//	WOW();
 	if ((*o)->flags)
 		free((*o)->flags);
+	free((*o)->data);
 	free(*o);
 }
 
 void			init_content(t_content *content, char *format, va_list *args)
 {
-	WOW();
+//	WOW();
 	content->format = format;
 	content->arg_list = args;
 	content->r_val = 0;
@@ -71,14 +73,14 @@ void			init_content(t_content *content, char *format, va_list *args)
 
 void			parse_specifier(t_content *content, t_opt *o, int *ptr)
 {
-	WOW();
+//	WOW();
 	int					tmp;
 
 	tmp = *ptr + 1;
-	print_options(o);
+//	print_options(o);
 	while (content->format[tmp] && !(spec_check(content->format[tmp])))
 	{
-		b_printf("\n----content->format[%d] = %c\n", tmp, content->format[tmp]);
+//		b_printf("\n----content->format[%d] = %c\n", tmp, content->format[tmp]);
 		assert(tmp < ft_strlen(content->format));
 		if (flag_check(content->format[tmp]))
 		{
@@ -92,19 +94,24 @@ void			parse_specifier(t_content *content, t_opt *o, int *ptr)
 		else if (is_length_char(content->format[tmp]))
 			tmp = read_length(&o, content, tmp);
 	}
-	b_printf("\n----content->format[%d] = %c\n", tmp, content->format[tmp]);
+//	b_printf("\n----content->format[%d] = %c\n", tmp, content->format[tmp]);
 	if (spec_check(content->format[tmp]))
 	{
 		o->spec = content->format[tmp];
-		*ptr = tmp;
+		*ptr = tmp + 1;
 	}
-	print_options(o);
+	else
+	{
+		*ptr = tmp;
+		return ;
+	}
+//	print_options(o);
 	dispatch(o, content);
 }
 
 int				parse_format(const char *format, va_list arg_list)
 {
-	WOW();
+//	WOW();
 	t_opt				*o;
 	t_content			content;
 	int					ptr;
@@ -117,7 +124,7 @@ int				parse_format(const char *format, va_list arg_list)
 	ptr = 0;
 	while (format[ptr])
 	{
-		b_printf("----------format[%d] = %c\n", ptr, format[ptr]);
+//		b_printf("----------format[%d] = %c\n", ptr, format[ptr]);
 		if (format[ptr] == '%')
 		{
 			parse_specifier(&content, o, &ptr);

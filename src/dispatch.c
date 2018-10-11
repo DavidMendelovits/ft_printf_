@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:33:16 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 16:49:18 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/10 21:52:30 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			dispatch(t_opt *o, t_content *content)
 {
-	WOW();
+//	WOW();
 	if (o->spec == 'S' || o->spec == 's')
 	{
 		string(o, content);
