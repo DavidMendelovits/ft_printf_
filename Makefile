@@ -8,7 +8,10 @@ SRC_FILES = parse.c \
 			parse_functions.c \
 			string.c \
 			wide_char.c \
-			dispatch.c
+			dispatch.c \
+			decimal.c \
+			conversions.c 
+
 .PHONY = all clean fclean clean re
 
 SRCS = $(addprefix src/, $(SRC_FILES))

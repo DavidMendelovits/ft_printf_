@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:58:18 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 21:15:20 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 18:12:01 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,10 @@ void				string_options(t_opt *o);
 void				print_string(t_opt *o, t_content *content);
 
 
+void				decimal(t_opt *o, t_content *content);
+
+void				unsigned_conversion(t_opt *o, t_content *content);
+void				conversion(t_opt *o, t_content *content);
 
 void				print_wide_string(t_opt *o, t_content *content);
 int					ft_print_wchar(wchar_t);

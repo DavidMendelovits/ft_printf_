@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 16:56:39 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/11 17:43:24 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 18:26:41 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static unsigned	ft_numlen_base(intmax_t nbr, unsigned int radix)
 		nbr /= radix;
 		len += 1;
 	}
+	if (len == 0)
+		len = 1;
 	return (len);
 }
 
