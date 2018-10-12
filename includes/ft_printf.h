@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:58:18 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/11 18:12:01 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 22:29:43 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct		s_flags
 	int				prepend_space:1;
 	int				prefix:1;
 	int				prepend_zero:1;
+	int				append_zero:1;
 }					t_flags;
 
 int					ft_printf(const char *format, ...);

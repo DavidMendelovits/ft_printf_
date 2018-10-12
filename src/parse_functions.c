@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:53:20 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/11 16:19:51 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 22:30:15 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_flags 	*init_flags_struct(void)
 	flags->prepend_space = 0;
 	flags->prefix = 0;
 	flags->prepend_zero = 0;
+	flags->append_zero = 0;
 	return (flags);
 }
 

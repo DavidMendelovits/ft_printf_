@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/11 16:55:17 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 22:28:43 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,20 @@ char			*pad_string(t_opt *o, int _pad)
 
 	pad = (char *)ft_memalloc(sizeof(char) * (_pad + 1));
 //	printf("1\n");
+//	printf("o->flags->prepend_zero = %d\n", o->flags->prepend_zero);
 	if (o->flags && o->flags->prepend_zero)
 		ft_memset(pad, '0', _pad);
-	else	
+	else
+	{	
 		ft_memset(pad, ' ', _pad);
+	//	printf("empty_pad\n");
+	}
 //	printf("1\n");
-	if (o->flags && o->flags->left_align)
+	if (o->flags && o->flags->left_align && pad[0] != '0')
 	{
+	//	printf("1\n");
 		new = ft_strjoin(o->data->str, pad);
+	//	printf("|%s|\n", new);
 	}
 	else
 	{

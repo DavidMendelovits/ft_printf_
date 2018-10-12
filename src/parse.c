@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:15:31 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 21:57:23 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 22:32:03 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void			print_options(t_opt *o)
 			printf("prefix '#'\n");
 		if (o->flags->prepend_zero)
 			printf("prepend_zero '0'\n");
+		if (o->flags->append_zero)
+			printf("append_zero '0'\n");
 	}
 	printf("width = %d\n", o->width);
 	printf("_width = %d\n", o->_width);
