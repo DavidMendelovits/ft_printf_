@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:41:50 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 22:01:18 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 16:55:07 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,18 @@ int			main()
 	printf("|%s|\n", "Hello, World");
 	ft_printf("|%20s|\n", "Hello, World");
 	printf("|%20s|\n", "Hello, World");
+	ft_printf("|%-20s|\n", "Hello, World");
+	printf("|%-20s|\n", "Hello, World");
 	ft_printf("|%20.5s|\n", "Hello, World");
 	printf("|%20.5s|\n", "Hello, World");
 	ft_printf("|%-20.6s|\n", "Hello, World");
 	printf("|%-20.6s|\n", "Hello, World");
+	ft_printf("|%-20.s|\n", "Hello, World");
+	printf("|%-20.s|\n", "Hello, World");
+	ft_printf("|%-20.s|\n", "Hello, World");
+	printf("|%-20.s|\n", "Hello, World");
+	ft_printf("|%0010s|\n", "string");
+	printf("|%0010s|\n", "string");
 	ft_printf("|%-20.-6s|\n", "Hello, World");
 	printf("|%-20.-6s|\n", "Hello, World");
 //	ft_printf("testing.....\n");

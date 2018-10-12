@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:53:20 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 21:53:26 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 16:19:51 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,13 @@ int			read_precision(t_opt **o, t_content *content, int ptr)
 	{
 		(*o)->precision = va_arg(*content->arg_list, int);
 	}
+	else if (content->format[ptr] == '-')
+	{
+		(*o)->_precision = 0;
+		return (ptr + 1);
+	}
+	else if (ptr == begin && spec_check(content->format[ptr]))
+		(*o)->_precision = 0;
 	else
 	{
 		precision = ft_strdup_range(content->format, begin, ptr - 1);

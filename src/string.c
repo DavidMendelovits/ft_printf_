@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 21:59:29 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 16:55:17 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ char			*pad_string(t_opt *o, int _pad)
 
 	pad = (char *)ft_memalloc(sizeof(char) * (_pad + 1));
 //	printf("1\n");
-	ft_memset(pad, ' ', _pad);
+	if (o->flags && o->flags->prepend_zero)
+		ft_memset(pad, '0', _pad);
+	else	
+		ft_memset(pad, ' ', _pad);
 //	printf("1\n");
 	if (o->flags && o->flags->left_align)
 	{
@@ -60,12 +63,17 @@ void			string_options(t_opt *o)
 //	WOW();
 	char			*tmp;
 
-	if (o->precision && o->_precision < ft_strlen(o->data->str))
+	if (o->precision && o->_precision < ft_strlen(o->data->str) && o->_precision)
 	{
 		tmp = ft_strdup_range(o->data->str, 0, o->_precision - 1);
 		free(o->data->str);
 		o->data->str = ft_strdup(tmp);
 		free(tmp);
+	}
+	else if (o->precision && !o->_precision)
+	{
+		free(o->data->str);
+		o->data->str = NULL;
 	}
 	if (o->width && o->_width > ft_strlen(o->data->str))
 	{
@@ -86,7 +94,7 @@ void			print_string(t_opt *o, t_content *content)
 	}
 	len = ft_strlen(o->data->str);
 	content->r_val += len;
-	write(1, o->data->str, len);
+	write(1, o->data->str, len);	
 }
 
 void			string(t_opt *o, t_content *content)

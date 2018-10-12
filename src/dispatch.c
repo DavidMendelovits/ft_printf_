@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:33:16 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/10 21:52:30 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/11 16:55:35 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void			dispatch(t_opt *o, t_content *content)
 	}
 	else if (o->spec == 'd' || o->spec == 'i')
 	{
-//		decimal(o, content);
+		decimal(o, content);
 	}
 	else if (o->spec == 'D')
 	{

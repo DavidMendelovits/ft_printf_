@@ -1,42 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   decimal.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/10 20:48:03 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/11 16:17:19 by dmendelo         ###   ########.fr       */
+/*   Created: 2018/10/11 16:55:44 by dmendelo          #+#    #+#             */
+/*   Updated: 2018/10/11 17:00:26 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char		*ft_strjoin(const char *s1, const char *s2)
-{
-	char			*new;
-	int				p;
-	int				np;
-
-	if (!s1)
-		return (ft_strdup(s2));
-	else if (!s2)
-		return (ft_strdup(s1));
-	new = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	p = 0;
-	np = 0;
-	while (s1[p])
-	{
-		new[np] = s1[p];
-		p += 1;
-		np += 1;
-	}
-	p = 0;
-	while (s2[p])
-	{
-		new[np] = s2[p];
-		np += 1;
-		p += 1;
-	}
-	return (new);
-}
