@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 16:55:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/12 17:57:14 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/12 18:21:21 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,19 @@ void			pad_decimal(t_opt *o)
 //	WOW();
 	char				*tmp;
 
-	if (o->flags)
+	if (o->_precision > ft_strlen(o->data->str) && o->data->str[0] == '-')
+	{
+		tmp = ft_strdup_range(o->data->str, 1, ft_strlen(o->data->str - 1));
+		o->data->str = ft_strdup(tmp);
+		free(tmp);
+		tmp = pad_num_zero(o, o->_precision - ft_strlen(o->data->str));
+		o->data->str = ft_strdup(tmp);
+		free(tmp);
+		tmp = ft_strjoin("-", o->data->str);
+		o->data->str = ft_strdup(tmp);
+		free(tmp);
+	}
+	else if (o->flags)
 	{
 		if (o->flags->prepend_space)
 		{
@@ -51,22 +63,7 @@ void			pad_decimal(t_opt *o)
 			free(tmp);
 		}
 	}
-	else if (o->_precision > ft_strlen(o->data->str) && o->data->str[0] == '-')
-	{
-	//	printf("1\n");
-		tmp = ft_strdup_range(o->data->str, 1, ft_strlen(o->data->str - 1));
-		printf("1\n");
-		o->data->str = ft_strdup(tmp);
-//		printf("1\n");
-//		free(tmp);
-//		printf("1\n");
-//		tmp = pad_num_zero(o, o->_precision - ft_strlen(o->data->str));
-//		o->data->str = ft_strdup(tmp);
-//		free(tmp);
-//		tmp = ft_strjoin("-", o->data->str);
-//		o->data->str = ft_strdup(tmp);
-//		free(tmp);
-	}
+	
 	else if (o->_precision > ft_strlen(o->data->str))
 	{
 		tmp = pad_num_zero(o, o->_precision - ft_strlen(o->data->str));
@@ -93,6 +90,10 @@ void			appropriate_flags(t_opt *o)
 			o->flags->append_zero = 0;
 			o->flags->prepend_zero = 1;
 		}
+		if (o->flags->prepend_space && o->data->num < 0)
+		{
+			o->flags->prepend_space = 0;
+		}
 		if (o->flags->prepend_zero && o->flags->prepend_sign && !o->width)
 		{
 			o->_precision -= 1;
@@ -101,7 +102,10 @@ void			appropriate_flags(t_opt *o)
 		{
 			o->flags->prepend_space = 0;
 		}
-
+		if (!o->width && o->precision && o->data->num < 0)
+		{
+			o->_precision -= 1;
+		}
 	}
 }
 
