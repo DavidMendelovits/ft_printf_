@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 16:11:33 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 16:49:12 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 16:56:52 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 int			get_wchar_length(wint_t s)
 {
-	WOW();
+//	WOW();
 	if (s <= ASCII_MAX)
 	{
 		return (1);
@@ -43,7 +43,7 @@ int			get_wchar_length(wint_t s)
 
 wint_t		extract_wchar(int len, wchar_t s)
 {
-	WOW();
+//	WOW();
 	unsigned char		*wide_char;
 	wint_t				ret;
 
@@ -80,7 +80,7 @@ wint_t		extract_wchar(int len, wchar_t s)
 
 wint_t		wchar_to_i(unsigned char *wchar, int len)
 {
-	WOW();
+//	WOW();
 	wint_t			wide_char;
 	int				i;
 
@@ -104,7 +104,7 @@ int		to_little_endian(int c)
 
 int			ft_print_wchar(wchar_t s)
 {
-	WOW();
+//	WOW();
 	int						len;
 	wint_t					wide_char;
 
@@ -115,13 +115,13 @@ int			ft_print_wchar(wchar_t s)
 //	printf("\n");
 //	wide_char = to_little_endian(wide_char);
 	write(1, &wide_char, len);
-	printf("huh\n");
+//	printf("huh\n");
 	return (len);
 }
 
 void			print_wide_string(t_opt *o, t_content *content)
 {
-	WOW();
+//	WOW();
 	int				len;
 	wchar_t			*wstr;
 	int				i;
@@ -129,17 +129,17 @@ void			print_wide_string(t_opt *o, t_content *content)
 	i = 0;
 	o->spec = 'S';
 	len = 0;
-	printf("1\n");
+//	printf("1\n");
 	wstr = va_arg(*content->arg_list, wchar_t*);
-	printf("2\n");
+//	printf("2\n");
 	while (wstr[i])
 	{
-		printf("loop\n");
+//		printf("loop\n");
 		len += ft_print_wchar(wstr[i]);
 		content->r_val += sizeof(wstr[i]);
-		printf("huh\n");
+//		printf("huh\n");
 		i += 1;
-		printf("huh\n");
+//		printf("huh\n");
 	}
 	content->r_val += len;
 }
