@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:53:20 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/11 22:30:15 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/12 15:30:17 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int			read_flags(t_opt **o, t_content *content, int ptr)
 		}
 		else if (content->format[ptr] == '0')
 		{
-			(*o)->flags->prepend_zero = 1;
+			(*o)->flags->append_zero = 1;
 		}
 		else if (content->format[ptr] == ' ' && !(*o)->flags->prepend_sign)
 		{

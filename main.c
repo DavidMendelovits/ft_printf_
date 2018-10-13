@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:41:50 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/11 18:22:06 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/12 17:53:01 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int			main()
 
 	int		n = 10;
 
+	printf("|%-05d|\n", 42);
 	printf("-----------signed----------\n");
 	ft_printf("|%d|\n", 0);
 	printf("|%d|\n", 0);
@@ -93,12 +94,12 @@ int			main()
 	printf("%zD, %zD\n", 0, USHRT_MAX);
 	ft_printf("{% 03d}\n", 0);
 	printf("{% 03d}\n", 0);
-	ft_printf("{%3*d}\n", 0, 0);
-	printf("{%3*d}\n", 0, 0);
+//	ft_printf("{%3*d}\n", 0, 0);
+//	printf("{%3*d}\n", 0, 0);
 	ft_printf("%.d, %.0d\n", 0, 0);
 	printf("%.d, %.0d\n", 0, 0);
-	ft_printf("{%05.*d}\n", -15, 42);
-	printf("{%05.*d}\n", -15, 42);
+//	ft_printf("{%05.*d}\n", -15, 42);
+//	printf("{%05.*d}\n", -15, 42);
 	ft_printf("%d %s \n", NULL, NULL, NULL);
 	printf("%d %s \n", NULL, NULL, NULL);
 	ft_printf("'+' flag |%++d|\n", n);
@@ -109,8 +110,8 @@ int			main()
 	printf("padding with '-' flag |%--10d|\n", n);
 	ft_printf("padding without '-' flag |%10d|\n", n);
 	printf("padding without '-' flag |%10d|\n", n);
-	ft_printf("Double persent: |%10%|\n", n);
-	printf("Double persent: |%10%|\n", n);
+//	ft_printf("Double persent: |%10%|\n", n);
+//	printf("Double persent: |%10%|\n", n);
 
 	printf("----------s,c flags -----------\n");
 	ft_printf("|%c|\n", 'A');
@@ -137,6 +138,8 @@ int			main()
 	printf("|%-20.s|\n", "Hello, World");
 	ft_printf("|%0010s|\n", "string");
 	printf("|%0010s|\n", "string");
+	ft_printf("|%-0010s|\n", "string");
+	printf("|%-0010s|\n", "string");
 	ft_printf("|%-20.-6s|\n", "Hello, World");
 	printf("|%-20.-6s|\n", "Hello, World");
 //	ft_printf("testing.....\n");

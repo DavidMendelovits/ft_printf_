@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:58:18 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/11 22:29:43 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/12 17:12:31 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,6 @@ typedef struct		s_opt
 	t_argument		*data;
 }					t_opt;
 
-typedef struct		s_checks
-{
-	int				flag_check:1;
-	int				width_check:1;
-	int				precision_check:1;
-	int				length_check:1;
-}					t_checks;
-
 typedef struct		s_content
 {
 	va_list			*arg_list;
@@ -54,12 +46,12 @@ typedef struct		s_content
 
 typedef struct		s_flags
 {
-	int				left_align:1;
-	int				prepend_sign:1;
-	int				prepend_space:1;
-	int				prefix:1;
-	int				prepend_zero:1;
-	int				append_zero:1;
+	unsigned int		left_align:1;
+	unsigned int		prepend_sign:1;
+	unsigned int		prepend_space:1;
+	unsigned int		prefix:1;
+	unsigned int		prepend_zero:1;
+	unsigned int		append_zero:1;
 }					t_flags;
 
 int					ft_printf(const char *format, ...);
