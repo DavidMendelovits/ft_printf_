@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 16:11:33 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/11 15:31:44 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 16:49:12 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ void			print_wide_string(t_opt *o, t_content *content)
 	{
 		printf("loop\n");
 		len += ft_print_wchar(wstr[i]);
+		content->r_val += sizeof(wstr[i]);
 		printf("huh\n");
 		i += 1;
 		printf("huh\n");
