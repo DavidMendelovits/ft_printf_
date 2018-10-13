@@ -38,8 +38,8 @@ fclean: clean
 		@rm -rf $(NAME)
 		@echo "Removed executable file"
 
-test: $(OBJ) 
-	@make -C libft/
-	@gcc -g main.c $(OBJ) libft/*.o $(CFLAGS) -o $(TEST)
+#test: $(OBJ) 
+#	@make -C libft/
+# @gcc -g main.c $(OBJ) libft/*.o $(CFLAGS) -o $(TEST)
 
 re: fclean all
