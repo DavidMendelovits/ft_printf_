@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 11:03:46 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 16:46:29 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void			print_string(t_opt *o, t_content *content)
 	len = ft_strlen(o->data->str);
 	content->r_val += len;
 	write(1, o->data->str, len);	
+	content->r_val += len;
 }
 
 void			string(t_opt *o, t_content *content)

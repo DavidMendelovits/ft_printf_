@@ -32,10 +32,12 @@ $(NAME):  $(OBJ)
 
 clean:
 		@rm -rf $(OBJ)
+		@make -C libft/ clean
 		@echo "removed object files"
 
 fclean: clean
 		@rm -rf $(NAME)
+		@make -C libft/ fclean
 		@echo "Removed executable file"
 
 #test: $(OBJ) 
