@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/12 18:33:01 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/12 18:37:46 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			character(t_opt *o, t_content *content)
 
 	if (o->spec == 'c')
 	{
-		c = va_arg(*content->arg_list, int);
+		c = (unsigned int)va_arg(*content->arg_list, int);
 		o->data->str = ft_strdup_range(&c, 0, 0);
 		print_string(o, content);
 	}
