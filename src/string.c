@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 16:49:33 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 16:53:21 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void			character(t_opt *o, t_content *content)
 		wc = va_arg(*content->arg_list, wchar_t);
 		ft_print_wchar(wc);
 		content->r_val += sizeof(wc);
+	}
+	else if (o->spec == '%')
+	{
+		o->data->str = ft_strdup("%");
+		print_string(o, content);
 	}
 }
 
