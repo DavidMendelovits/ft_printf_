@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 16:11:33 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 17:04:05 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 17:09:21 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ wint_t		extract_wchar(int len, wchar_t s)
 		wide_char[3] = ((s & _6BIT_MAX) | _8BIT_MASK);
 	}
 	ret = wchar_to_i(wide_char, len);
-//	free(wide_char);
+	free(wide_char);
 	return (ret);
 }
 
@@ -136,7 +136,6 @@ void			print_wide_string(t_opt *o, t_content *content)
 	{
 //		printf("loop\n");
 		len += ft_print_wchar(wstr[i]);
-		content->r_val += 1;
 //		printf("huh\n");
 		i += 1;
 //		printf("huh\n");
