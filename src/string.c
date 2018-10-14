@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 17:43:09 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 20:07:45 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void			character(t_opt *o, t_content *content)
 //	WOW();
 	wchar_t			wc;
 	char			c;
+	char			*str;
 
 	if (o->spec == 'c')
 	{
@@ -28,8 +29,11 @@ void			character(t_opt *o, t_content *content)
 	else if (o->spec == 'C')
 	{
 		wc = va_arg(*content->arg_list, wchar_t);
-		ft_print_wchar(wc);
-		content->r_val += sizeof(wc);
+		str = ft_strnew(sizeof(wchar_t) + 1);
+		*((wchar_t *)str) = wc;
+		write(1, str, ft_strlen(str));
+	//	ft_print_wchar(wc);
+		content->r_val += ft_strlen(str);
 	}
 	else if (o->spec == '%')
 	{
@@ -45,6 +49,8 @@ char			*pad_string(t_opt *o, int _pad)
 	char			*new;
 
 //	print_options(o);
+//	if (o->flags && o->flags->prepend_space && o->width)
+//		_pad -= 1;
 	pad = (char *)ft_memalloc(sizeof(char) * (_pad + 1));
 	if (o->flags && o->flags->append_zero && o->spec == 's' && !o->flags->left_align)
 	{
