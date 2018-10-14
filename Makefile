@@ -10,7 +10,9 @@ SRC_FILES = parse.c \
 			wide_char.c \
 			dispatch.c \
 			decimal.c \
-			conversions.c 
+			conversions.c \
+			unsigned.c \
+			pointer.c
 
 .PHONY = all clean fclean clean re
 

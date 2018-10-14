@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 16:55:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 17:28:33 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 19:18:10 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@ char			*pad_num_zero(t_opt *o, int _pad)
 	char				*pad;
 	char				*new;
 
+	if (o->flags)
+	{
+		if (o->flags->prefix)
+		{
+			if (o->spec == 'o' || o->spec == 'O')
+				_pad -= 1;
+	//		else if (o->spec == 'x' || o->spec == 'X')
+	//			_pad -= 2;
+		}
+	}
 	pad = (char *)ft_memalloc(sizeof(char) * (_pad + 1));
 	ft_memset(pad, '0', _pad);
 	new = ft_strjoin(pad, o->data->str);

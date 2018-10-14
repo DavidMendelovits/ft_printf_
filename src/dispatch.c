@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:33:16 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 16:52:30 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 19:21:21 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,33 @@ void			dispatch(t_opt *o, t_content *content)
 	}
 	else if (o->spec == 'u' || o->spec == 'U')
 	{
-//		unsigned_decimal(o, content);
+		print_unsigned(o, content, "0123456789", 10);
 	}
 	else if (o->spec == 'x' || o->spec == 'X')
 	{
-//		hexadecimal(o, content);
+		if (o->spec == 'x')
+		{
+			print_unsigned(o, content, "0123456789abcdef", 16);
+		}
+		else if (o->spec == 'X')
+		{
+			print_unsigned(o, content, "0123456789ABCDEF", 16);
+		}
 	}
 	else if (o->spec == 'o' || o->spec == 'O')
 	{
-//		octal(o, content);
+		if (o->spec == 'O')
+		{
+			ft_strcpy(o->length, "l");
+		}
+		print_unsigned(o, content, "01234567", 8);
 	}
 	else if (o->spec == 'b')
 	{
-//		binary(o, content);
+		print_unsigned(o, content, "01", 2); 
 	}
 	else if (o->spec == 'p')
 	{
-//		pointer(o, content);
+		print_pointer_address(o, content);
 	}
 }

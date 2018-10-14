@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:58:18 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/12 17:12:31 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 19:26:43 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ void				print_string(t_opt *o, t_content *content);
 
 
 void				decimal(t_opt *o, t_content *content);
+char				*pad_num_zero(t_opt *o, int _pad);
+void				print_unsigned(t_opt *o, t_content *content, char *base, int radix);
+void				print_pointer_address(t_opt *o, t_content *content);
 
 void				unsigned_conversion(t_opt *o, t_content *content);
 void				conversion(t_opt *o, t_content *content);
