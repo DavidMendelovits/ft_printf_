@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 16:55:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 11:04:16 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 17:07:15 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char			*pad_num_zero(t_opt *o, int _pad)
 	pad = (char *)ft_memalloc(sizeof(char) * (_pad + 1));
 	ft_memset(pad, '0', _pad);
 	new = ft_strjoin(pad, o->data->str);
-	free(o->data->str);
-	free(pad);
+//	free(o->data->str);
+//	free(pad);
 	return (new);
 }
 void			pad_decimal(t_opt *o)
@@ -37,15 +37,15 @@ void			pad_decimal(t_opt *o)
 		tmp = ft_strdup_range(o->data->str, 1, ft_strlen(o->data->str) - 1);
 		o->data->str = ft_strdup(tmp);
 //		printf("2o->data->str = %s\n", o->data->str);
-		free(tmp);
+//		free(tmp);
 		tmp = pad_num_zero(o, o->_precision - ft_strlen(o->data->str));
 		o->data->str = ft_strdup(tmp);
 //		printf("3o->data->str = %s\n", o->data->str);
-		free(tmp);
+//		free(tmp);
 		tmp = ft_strjoin("-", o->data->str);
 		o->data->str = ft_strdup(tmp);
 //		printf("4o->data->str = %s\n", o->data->str);
-		free(tmp);
+//		free(tmp);
 	}
 	else if (o->flags)
 	{
@@ -53,7 +53,7 @@ void			pad_decimal(t_opt *o)
 		{
 			tmp = pad_string(o, 1);
 			o->data->str = ft_strdup(tmp);
-			free(tmp);
+//			free(tmp);
 		}
 		else if (o->_precision > ft_strlen(o->data->str))
 		{
@@ -61,13 +61,13 @@ void			pad_decimal(t_opt *o)
 			tmp = pad_num_zero(o, o->_precision - ft_strlen(o->data->str));
 	//		printf("1\n%s\n", tmp);
 			o->data->str = ft_strdup(tmp);
-			free(tmp);
+//			free(tmp);
 		}
 		if (o->flags->prepend_sign)
 		{
 			tmp = ft_strjoin("+", o->data->str);
 			o->data->str = ft_strdup(tmp);
-			free(tmp);
+//			free(tmp);
 		}
 	}
 	
@@ -75,11 +75,11 @@ void			pad_decimal(t_opt *o)
 	{
 		tmp = pad_num_zero(o, o->_precision - ft_strlen(o->data->str));
 		o->data->str = ft_strdup(tmp);
-		free(tmp);
+//		free(tmp);
 	}
 	else if (o->precision && !o->_precision && !ft_strcmp(o->data->str, "0"))
 	{
-		free(o->data->str);
+//		free(o->data->str);
 		o->data->str = ft_strnew(1);
 	}
 }
@@ -131,7 +131,7 @@ void			decimal(t_opt *o, t_content *content)
 	appropriate_flags(o);
 	tmp = ft_itoa_base(o->data->num, "0123456789", 10);
 	o->data->str = ft_strdup(tmp);
-	free(tmp);
+//	free(tmp);
 //	printf("o->data->str = %s\n", o->data->str);
 	pad_decimal(o);
 //	printf("1o->data->str = %s\n", o->data->str);
@@ -139,7 +139,7 @@ void			decimal(t_opt *o, t_content *content)
 	{
 		tmp = pad_string(o, o->_width - ft_strlen(o->data->str));
 		o->data->str = ft_strdup(tmp);
-		free(tmp);
+	//	free(tmp);
 	}
 	write(1, o->data->str, ft_strlen(o->data->str));
 }

@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 16:11:33 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 17:00:49 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 17:04:05 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ wint_t		extract_wchar(int len, wchar_t s)
 		wide_char[3] = ((s & _6BIT_MAX) | _8BIT_MASK);
 	}
 	ret = wchar_to_i(wide_char, len);
-	free(wide_char);
+//	free(wide_char);
 	return (ret);
 }
 
