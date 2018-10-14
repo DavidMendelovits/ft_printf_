@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 16:11:33 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 17:09:21 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 20:11:15 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,16 +129,11 @@ void			print_wide_string(t_opt *o, t_content *content)
 	i = 0;
 	o->spec = 'S';
 	len = 0;
-//	printf("1\n");
 	wstr = va_arg(*content->arg_list, wchar_t*);
-//	printf("2\n");
-	while (wstr[i])
+	while (*wstr)
 	{
-//		printf("loop\n");
-		len += ft_print_wchar(wstr[i]);
-//		printf("huh\n");
-		i += 1;
-//		printf("huh\n");
+		len += ft_print_wchar(*wstr);
+		wstr += 1;
 	}
 	content->r_val += len;
 }
