@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 16:55:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 17:08:44 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 17:28:33 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void			pad_decimal(t_opt *o)
 			o->data->str = ft_strdup(tmp);
 			free(tmp);
 		}
-		if (o->flags->prepend_sign)
+		if (o->flags->prepend_sign && o->data->str[0] != '-')
 		{
 			tmp = ft_strjoin("+", o->data->str);
 			o->data->str = ft_strdup(tmp);
