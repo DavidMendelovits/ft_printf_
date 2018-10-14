@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 16:11:33 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 20:11:15 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 20:17:16 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int			ft_print_wchar(wchar_t s)
 //	printf("\n");
 //	ft_putnbr_base(print, 2);
 //	printf("\n");
-//	wide_char = to_little_endian(wide_char);
+	wide_char = to_little_endian(wide_char);
 	write(1, &wide_char, len);
 //	printf("huh\n");
 	return (len);

@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:41:50 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 19:55:33 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 20:15:47 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@
 int			main()
 {
 	wchar_t		c;
-
+	
 	setlocale(LC_ALL, "en_US.UTF-8");
 	c = L'诶';
 	ft_printf("%C\n", c);
 	ft_printf("%S\n", L"ابتثجحخدذرزسشصضطظعغفقكلمنهوي");
 	ft_printf("%S\n", L"Á±≥");
-		printf("%ls\n", L"ابتثجحخدذرزسشصضطظعغفقكلمنهوي");
-
-
+	printf("%ls\n", L"ابتثجحخدذرزسشصضطظعغفقكلمنهوي");
+	ft_printf("%C\n", 0x4040);
+	printf("%lc\n", 0x4040);
+	ft_printf("%S\n", L"䁀");
+	printf("%ls\n", L"䁀");
 	int		n = 10;
 //	ft_printf("%c\n", 2134234);
 	ft_printf("|% 4i|\n", 42);
