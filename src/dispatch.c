@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:33:16 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 19:21:21 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 21:42:25 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void			dispatch(t_opt *o, t_content *content)
 	}
 	else if (o->spec == 'u' || o->spec == 'U')
 	{
+		if (o->spec == 'U')
+			ft_strcpy(o->length, "l");
 		print_unsigned(o, content, "0123456789", 10);
 	}
 	else if (o->spec == 'x' || o->spec == 'X')

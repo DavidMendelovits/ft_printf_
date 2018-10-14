@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 16:11:33 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 20:17:16 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 20:48:08 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ wint_t		wchar_to_i(unsigned char *wchar, int len)
 		if (len)
 			wide_char <<= 8;
 	}
+	ft_putnbr_base(wide_char, 2);
+	printf("\n\n");
 	return (wide_char);
 }
 

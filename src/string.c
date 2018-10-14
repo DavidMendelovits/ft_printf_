@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 20:21:17 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 21:37:49 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void			character(t_opt *o, t_content *content)
 	//	o->data->str = ft_strdup_range(&c, 0, 0);
 	//	print_string(o, content);
 		ft_putchar(c);
+		content->r_val += 1;
 	}
 	else if (o->spec == 'C')
 	{
@@ -88,7 +89,7 @@ void			string_options(t_opt *o)
 		o->data->str = ft_strdup(tmp);
 		free(tmp);
 	}
-	else if (o->precision && !o->_precision)
+	else if (o->precision && !o->_precision && !(o->spec == '%'))
 	{
 		free(o->data->str);
 		o->data->str = NULL;

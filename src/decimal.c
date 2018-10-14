@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 16:55:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 20:02:53 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 21:40:23 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,9 +142,7 @@ void			decimal(t_opt *o, t_content *content)
 	tmp = ft_itoa_base(o->data->num, "0123456789", 10);
 	o->data->str = ft_strdup(tmp);
 	free(tmp);
-//	printf("o->data->str = %s\n", o->data->str);
 	pad_decimal(o);
-//	printf("1o->data->str = %s\n", o->data->str);
 	if (o->width && o->_width > ft_strlen(o->data->str))
 	{
 		tmp = pad_string(o, o->_width - ft_strlen(o->data->str));
@@ -158,4 +156,5 @@ void			decimal(t_opt *o, t_content *content)
 		free(tmp);
 	}
 	write(1, o->data->str, ft_strlen(o->data->str));
+	content->r_val += ft_strlen(o->data->str);
 }

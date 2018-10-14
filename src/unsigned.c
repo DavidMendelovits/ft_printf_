@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/13 17:38:46 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 19:17:39 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 20:48:48 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,5 @@ void			print_unsigned(t_opt *o, t_content *content, char *base, int radix)
 	}
 	if (o->data->str)
 		write(1, o->data->str, ft_strlen(o->data->str));
+	content->r_val += ft_strlen(o->data->str);
 }
