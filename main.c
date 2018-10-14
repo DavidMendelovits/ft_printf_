@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:41:50 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 18:51:55 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 19:39:07 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,5 +286,16 @@ int			main()
 	printf("%5.2x\n", 5427);
 	ft_printf("@moulitest: |%5.x %5.0x|\n", 0, 0);
 	printf("@moulitest: |%5.x %5.0x|\n", 0, 0);
+//	ft_printf("{%10R}\n");
+//	printf("{%10R}\n");
+//	ft_printf("%\n");
+//	printf("%\n");
+	ft_printf("%.5p\n", 0);
+	printf("%.5p\n", 0);
+	ft_printf("%10.5p\n", 0);
+	printf("%10.5p\n", 0);
+	int a = 42;
+	ft_printf("%p\n", (void *) &a);
+	printf("%p\n", (void *) &a);
 	return (0);
 }
