@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 18:50:09 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 16:53:21 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 16:59:09 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,12 @@ void			string(t_opt *o, t_content *content)
 	if (o->spec == 's')
 	{
 		tmp = va_arg(*content->arg_list, char *);
+		if (!tmp)
+		{
+			write(1, "(null)", 6);
+			content->r_val += 6;
+			return ;
+		}
 		o->data->str = ft_strdup(tmp);
 		print_string(o, content);
 	}

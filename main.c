@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:41:50 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 10:17:00 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 16:58:20 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 
 int			main()
 {
-//	wchar_t		c;
+	wchar_t		c;
 
-//	setlocale(LC_ALL, "en_US.UTF-8");
-//	c = L'诶';
-//	ft_printf("%C\n", c);
-//	ft_printf("%S\n", L"ابتثجحخدذرزسشصضطظعغفقكلمنهوي");
-//	ft_printf("%S\n", L"Á±≥");
-//		printf("%ls\n", L"ابتثجحخدذرزسشصضطظعغفقكلمنهوي");
+	setlocale(LC_ALL, "en_US.UTF-8");
+	c = L'诶';
+	ft_printf("%C\n", c);
+	ft_printf("%S\n", L"ابتثجحخدذرزسشصضطظعغفقكلمنهوي");
+	ft_printf("%S\n", L"Á±≥");
+		printf("%ls\n", L"ابتثجحخدذرزسشصضطظعغفقكلمنهوي");
 
 
 	int		n = 10;
@@ -111,8 +111,8 @@ int			main()
 	printf("padding with '-' flag |%--10d|\n", n);
 	ft_printf("padding without '-' flag |%10d|\n", n);
 	printf("padding without '-' flag |%10d|\n", n);
-//	ft_printf("Double persent: |%10%|\n", n);
-//	printf("Double persent: |%10%|\n", n);
+	ft_printf("Double persent: |%10%|\n", n);
+	printf("Double persent: |%10%|\n", n);
 
 	printf("----------s,c flags -----------\n");
 	ft_printf("|%c|\n", 'A');
