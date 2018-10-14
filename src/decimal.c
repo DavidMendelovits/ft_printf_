@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 16:55:44 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 19:18:10 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 19:52:19 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ void			pad_decimal(t_opt *o)
 	}
 	else if (o->flags)
 	{
-		if (o->flags->prepend_space)
-		{
-			tmp = pad_string(o, 1);
-			o->data->str = ft_strdup(tmp);
-			free(tmp);
-		}
-		else if (o->_precision > ft_strlen(o->data->str))
+//		if (o->flags->prepend_space)
+//		{
+//			tmp = pad_string(o, 1);
+//			o->data->str = ft_strdup(tmp);
+//			free(tmp);
+//		}
+		if (o->_precision > ft_strlen(o->data->str))
 		{
 	//		printf("1%s\n", o->data->str);
 			tmp = pad_num_zero(o, o->_precision - ft_strlen(o->data->str));
@@ -121,7 +121,7 @@ void			appropriate_flags(t_opt *o)
 		{
 			o->_precision -= 1;
 		}
-		if (o->flags->prepend_zero || o->precision)
+		if (o->flags->prepend_zero || (o->precision && !(o->_width < o->_precision)))
 		{
 			o->flags->prepend_space = 0;
 		}
@@ -148,6 +148,12 @@ void			decimal(t_opt *o, t_content *content)
 	if (o->width && o->_width > ft_strlen(o->data->str))
 	{
 		tmp = pad_string(o, o->_width - ft_strlen(o->data->str));
+		o->data->str = ft_strdup(tmp);
+		free(tmp);
+	}
+	if (o->flags && o->flags->prepend_space)
+	{
+		tmp = pad_string(o, 1);
 		o->data->str = ft_strdup(tmp);
 		free(tmp);
 	}

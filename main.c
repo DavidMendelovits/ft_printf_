@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 12:41:50 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/13 19:39:07 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 19:48:38 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int			main()
 	int		n = 10;
 //	ft_printf("%c\n", 2134234);
 
-/*	printf("|%-05d|\n", 42);
+	printf("|%-05d|\n", 42);
 	printf("-----------signed----------\n");
 	ft_printf("|% 4.5i|\n", 42);
 	printf("|% 4.5i|\n", 42);
 	ft_printf("|%d|\n", 0);
 	printf("|%d|\n", 0);
-	ft_printf("|% d|\n", 42);
-	printf("|% d|\n", 42);
+//	ft_printf("|% d|\n", 42);
+//	printf("|% d|\n", 42);
   	ft_printf("|%+d|\n", 42);
   	printf("|%+d|\n", 42);
   	ft_printf("|%+d|\n", 0);
@@ -148,7 +148,7 @@ int			main()
 	ft_printf("|%-20.-6s|\n", "Hello, World");
 	printf("|%-20.-6s|\n", "Hello, World");
 //	ft_printf("testing.....\n");
-//	ft_printf("test %010.5lld\n", "Hello"); */
+//	ft_printf("test %010.5lld\n", "Hello"); 
 	printf("--------------unsigned------------\n");
 	printf("--------------octal---------------\n");
 	ft_printf("|basic octal| -> %o\n", 42);
