@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror -g
 CFLAGS += -I includes/ -I libft/
 
 SRC_FILES = parse.c \

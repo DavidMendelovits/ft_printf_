@@ -6,7 +6,7 @@
 /*   By: dmendelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:15:31 by dmendelo          #+#    #+#             */
-/*   Updated: 2018/10/12 15:41:36 by dmendelo         ###   ########.fr       */
+/*   Updated: 2018/10/13 17:18:40 by dmendelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +139,8 @@ int				parse_format(const char *format, va_list arg_list)
 				ptr += 1;
 			}
 			print = ft_strdup_range((char *)format, begin, ptr - 1);
-			write(1, print, ptr - begin);
-			content.r_val += (ptr - begin);
+			write(1, print, ft_strlen(print));
+			content.r_val += ft_strlen(print);
 			free(print);
 		}
 	}
